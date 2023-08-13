@@ -7,8 +7,17 @@ environment:
   sdk: ">=3.0.6"
 
 dependencies:
+  # HTML
+  html: ^0.15.4
+
+  # Utilities
   meta: ^1.9.1
+  dart_scope_functions: ^0.1.0
+  collection: ^1.18.0
 
 dev_dependencies:
+  # Linter
   lints: ^2.1.1
+
+  # Testing
   test: ^1.24.6
