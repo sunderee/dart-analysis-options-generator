@@ -31,4 +31,12 @@ final class LinterRuleModel {
     this.styles,
     this.status,
   );
+
+  bool shouldBeEnabled(StyleEnum desiredStyle) {
+    if (status != null) {
+      return false;
+    }
+
+    return styles.contains(desiredStyle);
+  }
 }
