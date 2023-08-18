@@ -3,8 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('scraper', () async {
-    await scrapeLinterRules();
-
-    expect(2 + 2, equals(4));
+    final results = await scrapeLinterRules();
+    expect(results, isNotEmpty);
   });
 }
