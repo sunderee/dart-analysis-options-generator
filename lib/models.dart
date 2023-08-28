@@ -17,6 +17,13 @@ enum StyleEnum {
       return null;
     }
   }
+
+  static StyleEnum? fromString(String input) => switch (input) {
+        'core' => StyleEnum.core,
+        'recommended' => StyleEnum.recommended,
+        'flutter' => StyleEnum.flutter,
+        _ => null,
+      };
 }
 
 @immutable
