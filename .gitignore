@@ -13,4 +13,4 @@ coverage
 
 # Created by `dart pub`
 .dart_tool/
-analysis-gen
+analysis-options
