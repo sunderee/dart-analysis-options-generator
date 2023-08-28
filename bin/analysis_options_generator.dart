@@ -50,11 +50,11 @@ Future<void> main(List<String> arguments) async {
       exit(1);
     }
 
-    _yellow('Starting the job...');
-    _yellow('  1. Scrape linting rules');
+    print(_yellow('Starting the job...'));
+    print(_yellow('  1. Scrape linting rules'));
     final rules = await scrapeLinterRules();
 
-    _yellow('  2. Write to YAML file');
+    print(_yellow('  2. Write to YAML file'));
     final yamlWriteResult = await writeYamlFile(path, desiredStyle, rules);
 
     if (yamlWriteResult) {
@@ -62,6 +62,7 @@ Future<void> main(List<String> arguments) async {
     } else {
       print(_red('Error!!!'));
     }
+    exit(0);
   } on FormatException catch (_) {
     print(_red('Something went wrong'));
     exit(1);
