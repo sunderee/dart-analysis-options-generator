@@ -1,3 +1,4 @@
+import 'package:analysis_options_generator/internal/equatable.dart';
 import 'package:meta/meta.dart';
 
 enum StyleEnum {
@@ -16,10 +17,17 @@ enum StyleEnum {
       return null;
     }
   }
+
+  static StyleEnum? fromString(String input) => switch (input) {
+        'core' => StyleEnum.core,
+        'recommended' => StyleEnum.recommended,
+        'flutter' => StyleEnum.flutter,
+        _ => null,
+      };
 }
 
 @immutable
-final class LinterRuleModel {
+final class LinterRuleModel extends Equatable {
   final String title;
   final String description;
   final Set<StyleEnum> styles;
@@ -31,6 +39,14 @@ final class LinterRuleModel {
     this.styles,
     this.status,
   );
+
+  @override
+  List<Object?> get props => [
+        title,
+        description,
+        Set<StyleEnum>.from(styles),
+        status,
+      ];
 
   bool shouldBeEnabled(StyleEnum desiredStyle) {
     if (status != null) {
