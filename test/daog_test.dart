@@ -1,5 +1,6 @@
 import 'package:analysis_options_generator/models.dart';
 import 'package:analysis_options_generator/scraper.dart';
+import 'package:analysis_options_generator/yaml.dart';
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
@@ -33,5 +34,13 @@ void main() {
     );
 
     expect(results, isNotEmpty);
+  });
+
+  test('yaml', () async {
+    const path = 'XXX';
+    final rules = await scrapeLinterRules();
+    final result = await writeYamlFile(path, StyleEnum.recommended, rules);
+
+    expect(result, equals(true));
   });
 }
